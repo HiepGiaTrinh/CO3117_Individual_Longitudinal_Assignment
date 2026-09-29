@@ -30,10 +30,10 @@ Instructor dashboard — one row per Course Week. Verifiable in under 2 minutes.
 ## Dataset / use case
 
 - **Canonical**: UCI Human Activity Recognition Using Smartphones — predict physical activity from smartphone inertial sensors.
-- **Status**: draft, to confirm by end of R0.
+- **Status**: confirmed at R0 (2026-09-30).
 
 ## Frozen protocol (fill at R0 close)
 
-- Split policy: TBD (subject-aware split)
+- Split policy: predefined subject-wise split shipped with the dataset (21 subjects train, 9 subjects test); validation by `GroupKFold` on subject id inside train only; test set sealed until final comparison
 - Primary metric: Macro-F1 (secondary: accuracy, confusion matrix)
-- Random seed: TBD
+- Random seed: 42
