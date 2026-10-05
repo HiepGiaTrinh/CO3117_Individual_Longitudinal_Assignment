@@ -1,39 +1,27 @@
 # PROGRESS
 
-Instructor dashboard — one row per Course Week. Verifiable in under 2 minutes.
+One row per Course Week. Post and Drill are relative links; First evidence and Revision commit are
+commit hashes (at least 7 characters). `python tools/check.py` verifies every row up to the current week.
 
 | Period | Topic | Post | Drill | First evidence | Revision commit | Tag | Status |
 |---|---|---|---|---|---|---|---|
-| W01–W04 | PRE-RELEASE catch-up (Ch.1 Foundations, Ch.2 Decision Tree) | `docs/pre-release/PRE_RELEASE_CATCHUP.md` | release-day baseline diagnostic | `exercises/release-baseline-w01-w02.pdf` | — | `release-baseline` | PRE-RELEASE |
-| W05 | Perceptron/Delta + repo onboarding | `docs/weekly/w05-perceptron-delta.md` | `exercises/w05-first-attempt.pdf` | pre-ref commit | post-ref commit | `w05` | ACTIVE |
-| W05 | ANN / Backpropagation | `docs/weekly/w05-ann-backprop.md` | `exercises/w05-ann-first-attempt.pdf` | pre-ref commit | post-ref commit | `w05` | ACTIVE |
-| W06 | Bayesian learning / Naive Bayes | | | | | | PENDING |
-| W07 | Genetic Algorithm | | | | | | PENDING |
-| W07 | Bayesian Network / TAN — Part I closeout | | | | | | PENDING |
-| W08 | MIDTERM (protected week, 16 Oct 2026) | `exam/midterm-reflection.md` | timed rehearsal | | | `w08-midterm` | PENDING |
-| W09 | HMM (Forward / Viterbi) | | | | | | PENDING |
-| W10 | SVM: max-margin / soft margin | | | | | | PENDING |
-| W11 | Kernel SVM + cross-model comparison | | | | | | PENDING |
-| W12 | PCA | | | | | | PENDING |
-| W13 | LDA / feature engineering | | | | | | PENDING |
-| W14 | Bagging / Boosting / AdaBoost | | | | | | PENDING |
-| W15 | Generative vs discriminative; Logistic/MaxEnt/CRF; synthesis | | | | | | PENDING |
+| W01-W04 | PRE-RELEASE catch-up (Foundations, Decision Tree) | [catch-up](docs/pre-release/PRE_RELEASE_CATCHUP.md) | [release baseline](exercises/release-baseline-w01-w04.pdf) |  |  | release-baseline | PRE-RELEASE |
+| W05 | Perceptron, Delta Rule & Neural Networks (ANN) + onboarding |  |  |  |  | w05 | ACTIVE |
+| W06 | Bayesian learning / Naive Bayes |  |  |  |  | w06 |  |
+| W07 | Genetic Algorithms & Bayesian Networks (TAN), Part I closeout |  |  |  |  | w07, part1-final |  |
+| W08 | MIDTERM (16 Oct) |  |  | n/a | n/a | w08-midterm | MIDTERM |
+| W09 | HMM / sequence modelling |  |  |  |  | w09 |  |
+| W10 | SVM: maximum and soft margin |  |  |  |  | w10 |  |
+| W11 | Kernel SVM, cross-model comparison |  |  |  |  | w11 |  |
+| W12 | PCA, curse of dimensionality |  |  |  |  | w12 |  |
+| W13 | LDA, feature engineering |  |  |  |  | w13 |  |
+| W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
+| W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
 
-## Checkpoints
+Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
+W08: link the compact entry and the timed rehearsal if you have them (for example `docs/weekly/w08-midterm.md`,
+`exercises/w08-rehearsal.pdf`); the two-state commit rule does not apply.
 
-| Checkpoint | Due | Status |
-|---|---|---|
-| R0 — setup gate | before W06 class + 1 day | IN PROGRESS |
-| Part I (40/100) | 14 Oct 2026 | PENDING |
-| Part II (60/100) | 2 calendar days before final exam | PENDING |
+Example of a completed row:
 
-## Dataset / use case
-
-- **Canonical**: UCI Human Activity Recognition Using Smartphones — predict physical activity from smartphone inertial sensors.
-- **Status**: confirmed at R0 (2026-09-30).
-
-## Frozen protocol (fill at R0 close)
-
-- Split policy: predefined subject-wise split shipped with the dataset (21 subjects train, 9 subjects test); validation by `GroupKFold` on subject id inside train only; test set sealed until final comparison
-- Primary metric: Macro-F1 (secondary: accuracy, confusion matrix)
-- Random seed: 42
+`| W05 | Perceptron, Delta Rule & ANN | [post](docs/weekly/w05-perceptron-ann.md) | [drill](exercises/w05-first-attempt.pdf) | 3f9c2ab | 8d41e07 | w05 | DONE |`

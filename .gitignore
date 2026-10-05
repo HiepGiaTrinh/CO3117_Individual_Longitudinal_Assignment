@@ -1,8 +1,18 @@
+data/raw/
+data/UCI*/
+*.zip
+*.tar.gz
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.h5
+*.pt
+*.ckpt
+.env
 __pycache__/
-*.pyc
-.pytest_cache/
+.ipynb_checkpoints/
 .venv/
 venv/
-.ipynb_checkpoints/
-data/*.zip
-data/UCI HAR Dataset/
+.DS_Store
+.pytest_cache/
