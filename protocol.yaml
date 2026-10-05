@@ -1,11 +1,11 @@
 # Frozen experimental protocol (assignment Section 2 and 9). Fill every field by the release-baseline
 # tag. After that, changes are allowed only with a dated note in PROGRESS.md explaining why.
-dataset: ""            # e.g. UCI Human Activity Recognition Using Smartphones
-dataset_version: ""    # exact version, DOI or download URL and SHA-256 of the archive
-use_case: ""
-target: ""
-split_policy: ""       # group/subject-aware split; which subjects go to the sealed test set
+dataset: "UCI Human Activity Recognition Using Smartphones"
+dataset_version: "UCI ML Repository dataset id 240, https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip, SHA-256 c00b803081a5c797cd5e4b83700a9810b38d53d9d84e01917e090e1fdbc81031"
+use_case: "Predict a person's current physical activity from smartphone inertial sensor signals"
+target: "Activity label, 6 classes: walking, walking upstairs, walking downstairs, sitting, standing, laying"
+split_policy: "Predefined subject-wise split shipped with the dataset: 21 subjects train, 9 subjects sealed test; validation by GroupKFold on subject id inside train only"
 primary_metric: macro-F1
 secondary_metrics: [accuracy, confusion matrix]
-seeds: []              # e.g. [0, 1, 2, 3, 4]
-baseline: ""           # simple baseline kept all semester
+seeds: [42]
+baseline: "Majority-class predictor (most frequent activity), kept all semester"
