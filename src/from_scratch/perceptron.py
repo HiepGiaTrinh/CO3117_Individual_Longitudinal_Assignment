@@ -12,7 +12,10 @@ import numpy as np
 
 
 def perceptron_update(w, b, x, y, lr):
-    raise NotImplementedError
+    if y * (w @ x + b) <= 0:
+        w = w + lr * y * x
+        b = b + lr * y
+    return w, b
 
 
 class Perceptron:
@@ -20,7 +23,26 @@ class Perceptron:
         self.lr, self.max_epochs, self.seed = lr, max_epochs, seed
 
     def fit(self, X, y):
-        raise NotImplementedError
+        # Initualize
+        X = np.asarray(X, dtype = float)
+        y = np.asarray(y)
+        rng = np.random.default_rng(self.seed)
+        
+        self.w_ = np.zeros(X.shape[1])
+        self.b_ = 0.0
+        
+        # Loop every epoch and count errors
+        for _ in range(self.max_epochs):
+            errors = 0
+            for i in rng.permutation(len(X)):
+                if y[i] * (self.w_ @ X[i] + self.b_) <= 0:
+                    errors += 1
+                self.w_, self.b_ = perceptron_update(self.w_, self.b_, X[i], y[i], self.lr)
+            if errors == 0:
+                break
+        return self
+        
 
     def predict(self, X):
-        raise NotImplementedError
+        scores = np.asarray(X, dtype = float) @ self.w_ + self.b_
+        return np.where(scores >= 0, 1, -1)
