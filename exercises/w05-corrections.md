@@ -1,0 +1,27 @@
+# W05 drill corrections
+
+Page numbers are for the current version of `MLP.pdf` and `TrainingANN.pdf`.
+
+## 1. Perceptron update
+- What I wrote: "Weights only change if errors."
+- What was wrong or missing: The idea is right, but it is too short. It does not say what an error is. It has no formulas, and it does not mention the bias `b` or the learning rate `η`. It also misses one case: a score of exactly 0 counts as an error (use `<=`, not `<`).
+- Correct reasoning: Let `y` be -1 or +1, and let the score be `s = w·x + b`. The example is wrong when `y·s <= 0`. In that case, `w ← w + η·y·x` and `b ← b + η·y`. If the example is right, `w` and `b` do not change. After the update, the score of the same example gets better: `y·s' = y·s + η(‖x‖² + 1)`. At the start, `w = 0` and `b = 0`, so every score is 0. Because we use `<=`, the first example still makes an update.
+- Source (slide, page): Mitchell (1997), Chapter 4 (perceptron training rule). It is not in `MLP.pdf` or `TrainingANN.pdf`.
+
+## 2. Why XOR fails
+- What I wrote: "Cannot separate it using a straight line."
+- What was wrong or missing: The answer is correct, but it only repeats the definition. It does not show why no line works. It does not say which models have this problem (perceptron, logistic regression and softmax regression all use a straight-line boundary). It also does not say how an MLP fixes it. My MLP note "Role of non-linearity: allow networks to learn a non-linear path" is also too loose. The real point is this: without an activation, many layers are the same as one linear layer.
+- Correct reasoning: These models predict with `sign(w·x + b)`, so the boundary is the line `w·x + b = 0`. For XOR we need four things: `w2 + b > 0` for (0,1), `w1 + b > 0` for (1,0), `b < 0` for (0,0), and `w1 + w2 + b < 0` for (1,1). Add the first two: `w1 + w2 + 2b > 0`. So `w1 + w2 + b > -b`, and `-b > 0`. This gives `w1 + w2 + b > 0`, which is the opposite of the fourth one. So no `w, b` can work. An MLP fixes this with a hidden layer and a nonlinear activation `φ`. The hidden layer changes `x` into new features, and in these features a line can split the classes. Without `φ`, `W2(W1x + b1) + b2 = (W2W1)x + (W2b1 + b2)` is still one linear map. Example: `h1 = ReLU(x1 + x2)`, `h2 = ReLU(x1 + x2 - 1)`, `ŷ = h1 - 2·h2`. The outputs are 0, 1, 1, 0 for (0,0), (0,1), (1,0), (1,1).
+- Source (slide, page): `MLP.pdf` p.5, 7, 8 (these are linear models, with a straight-line boundary), p.8 (hidden layers as nonlinear feature transformers), p.11 (with 0 layers, an MLP is linear, logistic or softmax regression), p.15 (stacking FC layers without activations gives one FC layer). `SVM.pdf` p.31 (XOR example).
+
+## 3. Perceptron rule vs delta rule
+- What I wrote: "by threshold" (I put a * and did not finish).
+- What was wrong or missing: This is only a few words. It says where the perceptron rule looks at the output, but nothing more. It is missing the delta rule, the error it minimizes, both update formulas, and how each rule behaves during training.
+- Correct reasoning: The perceptron rule uses the output after the threshold, `ŷ = sign(w·x + b)`. It changes the weights only when the example is wrong, with `w ← w + η·y·x`. The size of the update does not depend on how wrong the score is. It stops changing the weights only if a straight line can split the data. The delta rule uses the score before the threshold, `o = w·x + b`, and minimizes the squared error `E = ½(t - o)²`. The gradient is `-(t - o)x`, so it updates on every example: `w ← w + η(t - o)x` and `b ← b + η(t - o)`. With a small enough `η`, it gets close to the solution with the smallest squared error, even if a line cannot split the data. The threshold is used only when we predict. The delta rule is gradient descent on MSE for one linear unit.
+- Source (slide, page): Mitchell (1997), Chapter 4 (perceptron rule and delta rule). For the parts of the delta rule: `MLP.pdf` p.4 (linear model with MSE), `TrainingANN.pdf` p.6 (MSE) and p.18 (update step `θ ← θ - η∇L`). The slides do not use the name "delta rule".
+
+## 4. Backprop vs gradient descent
+- What I wrote: "Chain rule/backprop: Gradient descent update from output to input."
+- What was wrong or missing: This mixes two different steps. Backprop does not change any parameter. It only computes the gradients. Gradient descent is a separate step that uses these gradients to update the parameters. The answer also has no formulas, and it does not say why we must save the activations.
+- Correct reasoning: Training has three steps: forward (get the predictions and the loss), backward (get the gradients `∇θL` with the chain rule, from output to input), and update (for example SGD: `θ ← θ - η∇θL`). Backprop reuses the result of the layer after it, one layer at a time: `dZ_L = (P - Y)/n` for softmax with mean cross-entropy, `dW_l = A_{l-1}ᵀ dZ_l`, `db_l` = sum of `dZ_l` over the samples, and `dZ_{l-1} = (dZ_l W_lᵀ) ⊙ φ'(Z_{l-1})` (⊙ means element-wise multiply). For tanh, `φ' = 1 - tanh²`. Backprop needs the activations saved in the forward pass. The optimizer (SGD, momentum, Adam) changes only the update step. It can use any correct gradient, for example a numerical one.
+- Source (slide, page): `TrainingANN.pdf` p.15 (three steps), p.17 (backward pass, chain rule, saved activations), p.18 (update step), p.19 (SGD pseudocode); `MLP.pdf` p.14 (forward pass), p.20 (tanh derivative). The `(P - Y)/n` form is not shown in the slides.
