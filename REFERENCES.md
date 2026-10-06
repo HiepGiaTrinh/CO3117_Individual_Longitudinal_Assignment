@@ -5,6 +5,7 @@ Sources actually used so far. Add a line whenever a new source is used to verify
 ## Course material
 - CO3117 Machine Learning lecture slides, `Decision_Tree.pdf` — entropy, information gain, Gini, continuous attributes, pruning (used for the PRE-RELEASE catch-up).
 - CO3117 Individual Longitudinal Assignment specification (`CO3117_Individual_Longitudinal_Assignment_TwoPart_Deadlines.md`).
+- Mitchell, T. (1997). Machine Learning. McGraw-Hill. Chapter 4.
 
 ## Dataset
 - Anguita, D., Ghio, A., Oneto, L., Parra, X., Reyes-Ortiz, J. L. (2013). *A Public Domain Dataset for Human Activity Recognition Using Smartphones.* ESANN 2013.

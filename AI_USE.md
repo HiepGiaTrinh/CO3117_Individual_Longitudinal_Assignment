@@ -22,6 +22,14 @@ Log of every AI-assisted learning episode, per the course IBL protocol (Section 
 
 *(entries below, newest first)*
 
+### W05 entries
+
+| Week | Learning question | Pre-AI evidence | AI tool | Prompt purpose | Hint/question received | Verification source | What changed | Closed-book reproduction |
+|---|---|---|---|---|---|---|---|---|
+| W05 | What must `best_threshold`, `perceptron_update`, `forward`, `loss` and `backward` compute, and why did specific tests fail? | Handwritten drill `62ff803`. No pre-AI code commit; first working versions are `e476b45`, `7e79e52`, `1c16920`, made after hints | Claude (Anthropic) | Debugging hint | Pointers to the failing test errors: `~mask` instead of `-mask`; `best_threshold` still calling the old `impurity`; `loss` not calling `forward`. No code given | Contract tests in `tests/contract/`; `MLP.pdf`, `TrainingANN.pdf` | I wrote the three modules and fixed the three bugs myself; all contract tests pass | Not yet for `backward` |
+| W05 | Is my drill corrections file correct, and are its slide citations right? | Handwritten drill `62ff803`; corrections written by me before the review | Claude (Anthropic) | Review of my corrections | Flagged wrong `MLP.pdf` page numbers and a leftover draft note in section 1; confirmed the math in the four sections | `MLP.pdf`, `TrainingANN.pdf`, Mitchell (1997), Chapter 4 | I fixed the page citations and replaced the draft note with the real source (commit `fd3ca44`) | Yes for the update rule and the XOR proof; not yet for `backward` |
+
+
 ### Entry 4 — Outline and formula hints for `decision_tree_split.py`
 
 | Field | Entry |

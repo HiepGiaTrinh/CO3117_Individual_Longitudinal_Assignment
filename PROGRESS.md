@@ -6,7 +6,7 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | Period | Topic | Post | Drill | First evidence | Revision commit | Tag | Status |
 |---|---|---|---|---|---|---|---|
 | W01-W04 | PRE-RELEASE catch-up (Foundations, Decision Tree) | [catch-up](docs/pre-release/PRE_RELEASE_CATCHUP.md) | [release baseline](exercises/release-baseline-w01-w04.pdf) |  |  | release-baseline | PRE-RELEASE |
-| W05 | Perceptron, Delta Rule & Neural Networks (ANN) + onboarding |  |  |  |  | w05 | ACTIVE |
+| W05 | Perceptron, Delta Rule & Neural Networks (ANN) + onboarding | [post](docs/weekly/w05-perceptron-ann.md) | [drill](exercises/w05-first-attempt.pdf) | 62ff803 | fd3ca44 | w05 | ACTIVE |
 | W06 | Bayesian learning / Naive Bayes |  |  |  |  | w06 |  |
 | W07 | Genetic Algorithms & Bayesian Networks (TAN), Part I closeout |  |  |  |  | w07, part1-final |  |
 | W08 | MIDTERM (16 Oct) |  |  | n/a | n/a | w08-midterm | MIDTERM |
