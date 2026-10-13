@@ -1,0 +1,4 @@
+seed,best_fitness,n_features,macro_f1_cv,generation_of_best,diversity_first,diversity_last,seconds
+42,0.7549,14,0.7724,40,20.07,4.42,40
+43,0.7534,13,0.7697,40,19.91,3.41,41
+44,0.7554,13,0.7717,26,19.86,5.51,40
