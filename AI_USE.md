@@ -22,6 +22,15 @@ Log of every AI-assisted learning episode, per the course IBL protocol (Section 
 
 *(entries below, newest first)*
 
+### W06 entries
+
+| Week | Learning question | Pre-AI evidence | AI tool | Prompt purpose | Hint/question received | Verification source | What changed | Closed-book reproduction |
+|---|---|---|---|---|---|---|---|---|
+| W06 | What practice questions test MLE vs MAP and Naive Bayes for the W06 drill? | None, the questions came first; my handwritten attempt `01f52a7` was made after | Claude (Anthropic) | Quiz (question drafting) | A set of drill questions Q1-Q6 on MLE, MAP and Naive Bayes; no answers given | `BayesianLearning.pdf`, `NaiveBayes.pdf` | I solved the drill myself from these questions; the AI did not solve any of them | Not yet |
+| W06 | Is my corrections file right, and are my slide page citations correct? | Handwritten drill `01f52a7` | Claude (Anthropic) | Review of my corrections | Flagged Q3(b,c) and Q5a in my handwritten drill before I wrote the corrections; later confirmed the corrections and the slide page numbers were right | `BayesianLearning.pdf` p.8, p.12-15, p.20-22; `NaiveBayes.pdf` p.3, p.5-7, p.11, p.33 | After the flag I wrote the corrections for Q3c and Q5a myself; the later review required no changes | Not yet |
+| W06 | Does my from-scratch MultinomialNB match sklearn? | No pre-AI commit for the code; `e42ae54` was committed after this check | Claude (Anthropic) | Verification | Comparison of my MultinomialNB output with sklearn on the contract-test data; no code suggested | Contract-test data; sklearn output | No line of code changed | Not yet |
+| W06 | Are the grammar and wording of my corrections and this week's post correct? | Handwritten drill `01f52a7` | Claude (Anthropic) | Language editing | Grammar and wording fixes only | Not applicable (language only) | Sentences reworded; content unchanged | Not applicable |
+
 ### W05 entries
 
 | Week | Learning question | Pre-AI evidence | AI tool | Prompt purpose | Hint/question received | Verification source | What changed | Closed-book reproduction |
