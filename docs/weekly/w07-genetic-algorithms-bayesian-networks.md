@@ -71,7 +71,7 @@ Fitness is stable, but the subsets overlap only partly. One run supports "a subs
 
 ## H. Inquiry trail
 
-- **Asked the AI:** draft 4 BN/TAN drill questions; review the drill after `2252515`; review `ga.py` (too complex, and I simplified it myself); draft `w07_ga_seeds.py`; draft this post.
+- **Asked the AI:** draft 4 BN/TAN drill questions; review the drill after `2252515`; review ga.py (too complex, and I simplified it myself); outline of this post.
 - **Pre-AI attempt:** drill `2252515`; GA first attempt `9c8a822`.
 - **Without AI:** the drill first attempt; the first GA code; the simplification of `ga.py`.
 - **Verified against:** GA p.5, p.7–9, p.10–16, p.18; BN p.14. Numbers in D: re-run of `w07_ga_seeds.py`.
